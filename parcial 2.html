@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Consumo de API - Tablas</title>
+  <style>
+    table {
+      width: 50%;
+      margin: 20px auto;
+      border-collapse: collapse;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+  </style>
+</head>
+<body>
+  <h1>Datos de la API en Tablas</h1>
+
+  <!-- Tablas para los diferentes datos -->
+  <h2>Población por Sexo</h2>
+  <table id="sexo-table">
+    <tr>
+      <th>Sexo</th>
+      <th>Población</th>
+    </tr>
+  </table>
+
+  <h2>Población por Área</h2>
+  <table id="area-table">
+    <tr>
+      <th>Área</th>
+      <th>Población</th>
+    </tr>
+  </table>
+
+  <h2>Población por Grandes Grupos de Edad</h2>
+  <table id="edad-table">
+    <tr>
+      <th>Grupo de Edad</th>
+      <th>Población</th>
+    </tr>
+  </table>
+
+  <h2>Población por Pueblos</h2>
+  <table id="pueblos-table">
+    <tr>
+      <th>Pueblo</th>
+      <th>Población</th>
+    </tr>
+  </table>
+
+  <script>
+    // Simulamos los datos de la API con el JSON proporcionado
+    const data = {
+      "total_sexo_hombre": 12206,
+      "total_sexo_mujeres": 12615,
+      "total_sector_urbano": 24821,
+      "total_sector_rural": 0,
+      "pob_edad_014": 6638,
+      "pob_edad_1564": 16289,
+      "pob_edad_65": 1894,
+      "pob_pueblo_maya": 623,
+      "pob_pueblo_garifuna": 32,
+      "pob_pueblo_xinca": 5,
+      "pob_pueblo_afrodescendiente": 9,
+      "pob_pueblo_ladino": 24079,
+      "pob_pueblo_extranjero": 73
+    };
+
+    // Llenamos la tabla de Población por Sexo
+    const sexoTable = document.getElementById('sexo-table');
+    sexoTable.innerHTML += `
+      <tr><td>Hombre</td><td>${data.total_sexo_hombre}</td></tr>
+      <tr><td>Mujer</td><td>${data.total_sexo_mujeres}</td></tr>
+    `;
+
+    // Llenamos la tabla de Población por Área
+    const areaTable = document.getElementById('area-table');
+    areaTable.innerHTML += `
+      <tr><td>Urbana</td><td>${data.total_sector_urbano}</td></tr>
+      <tr><td>Rural</td><td>${data.total_sector_rural}</td></tr>
+    `;
+
+    // Llenamos la tabla de Población por Grandes Grupos de Edad
+    const edadTable = document.getElementById('edad-table');
+    edadTable.innerHTML += `
+      <tr><td>0-14 años</td><td>${data.pob_edad_014}</td></tr>
+      <tr><td>15-64 años</td><td>${data.pob_edad_1564}</td></tr>
+      <tr><td>65 años o más</td><td>${data.pob_edad_65}</td></tr>
+    `;
+
+    // Llenamos la tabla de Población por Pueblos
+    const pueblosTable = document.getElementById('pueblos-table');
+    pueblosTable.innerHTML += `
+      <tr><td>Maya</td><td>${data.pob_pueblo_maya}</td></tr>
+      <tr><td>Garífuna</td><td>${data.pob_pueblo_garifuna}</td></tr>
+      <tr><td>Xinca</td><td>${data.pob_pueblo_xinca}</td></tr>
+      <tr><td>Afrodescendientes</td><td>${data.pob_pueblo_afrodescendiente}</td></tr>
+      <tr><td>Ladino</td><td>${data.pob_pueblo_ladino}</td></tr>
+      <tr><td>Extranjero</td><td>${data.pob_pueblo_extranjero}</td></tr>
+    `;
+  </script>
+</body>
+</html>
